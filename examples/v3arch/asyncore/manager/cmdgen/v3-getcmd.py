@@ -1,3 +1,8 @@
+"""
+Can be used to query the agent example:
+examples/v3arch/asyncore/agent/cmdrsp/multiple-usm-users.py
+"""
+
 import asyncio
 from pysnmp.smi.rfc1902 import ObjectIdentity, ObjectType
 from pysnmp.hlapi.asyncio import getCmd,SnmpEngine,CommunityData,UdpTransportTarget,ContextData, \

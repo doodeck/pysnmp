@@ -20,8 +20,8 @@ Either of the following Net-SNMP commands will walk this Agent:
 | $ snmpwalk -v3 -u usr-sha-none -l authNoPriv -a SHA -A authkey1 localhost .1.3.6
 | $ snmpwalk -v3 -u usr-sha-aes128 -l authPriv -a SHA -A authkey1 -x AES -X privkey1 localhost .1.3.6
 
-Requires Python 3.4 and later!
-
+Also the following manager example is the perfect match to query this agent:
+examples/v3arch/asyncore/manager/cmdgen/v3-getcmd.py
 """#
 from pysnmp.entity import engine, config
 from pysnmp.entity.rfc3413 import cmdrsp, context
