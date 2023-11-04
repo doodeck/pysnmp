@@ -39,7 +39,7 @@ snmpEngine = engine.SnmpEngine()
 
 # UDP over IPv4
 config.addTransport(
-    snmpEngine, udp.domainName, udp.UdpTransport().openServerMode(("127.0.0.1", 161))
+    snmpEngine, udp.domainName, udp.UdpTransport().openServerMode(("127.0.0.1", 1161))
 )
 
 # SNMPv3/USM setup
@@ -64,6 +64,7 @@ config.addV3User(
     config.usmAesCfb128Protocol,
     "privkey1",
 )
+config.addV3User(snmpEngine, "usr-none-none")
 
 # Allow full MIB access for each user at VACM
 config.addVacmUser(
@@ -74,6 +75,9 @@ config.addVacmUser(
 )
 config.addVacmUser(
     snmpEngine, 3, "usr-sha-aes128", "authPriv", (1, 3, 6, 1, 2, 1), (1, 3, 6, 1, 2, 1)
+)
+config.addVacmUser(
+    snmpEngine, 3, "usr-none-none", "authNoPriv", (1, 3, 6, 1, 2, 1), (1, 3, 6, 1, 2, 1)
 )
 
 # Get default SNMP context this SNMP engine serves
