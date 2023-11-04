@@ -1,14 +1,16 @@
 import asyncio
-# from pysnmp.hlapi.asyncio.slim import Slim
 from pysnmp.smi.rfc1902 import ObjectIdentity, ObjectType
-from pysnmp.hlapi.asyncio import getCmd,SnmpEngine,CommunityData,UdpTransportTarget,ContextData
+from pysnmp.hlapi.asyncio import getCmd,SnmpEngine,CommunityData,UdpTransportTarget,ContextData, \
+                                 UsmUserData
 
 
 async def run():
     errorIndication, errorStatus, errorIndex, varBinds = await getCmd(
         SnmpEngine(),
-        CommunityData('public'),
-        UdpTransportTarget(('192.168.10.1', 161)),
+        # CommunityData('public'),
+        UsmUserData('usr-none-none'),
+        UdpTransportTarget(('127.0.0.1', 1161)),
+        # UdpTransportTarget(('demo.pysnmp.com', 161)),
         ContextData(),
         ObjectType(ObjectIdentity('SNMPv2-MIB', 'sysDescr', 0))
     )
