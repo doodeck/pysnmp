@@ -34,7 +34,7 @@ async def run(username:str):
                 authKey='authkey1',
                 authProtocol=usmHMACMD5AuthProtocol,
                 privKey='privkey1',
-                privProtocol=usmDESPrivProtocol)
+                privProtocol=usmDESPrivProtocol)  # https://www.yaklin.ca/2022/01/19/secure-query-with-snmpv3-and-pysnmp.html
         case _:
             print(f"Urecognized username: '{username}', aborting")
             return

@@ -22,6 +22,9 @@ Either of the following Net-SNMP commands will walk this Agent:
 
 Also the following manager example is the perfect match to query this agent:
 examples/v3arch/asyncore/manager/cmdgen/v3-getcmd.py
+as well as these:
+examples/v3arch/asyncore/manager/cmdgen/usm-sha-aes128.py
+examples/v3arch/asyncore/manager/cmdgen/usm-sha-none.py
 """#
 from pysnmp.entity import engine, config
 from pysnmp.entity.rfc3413 import cmdrsp, context
