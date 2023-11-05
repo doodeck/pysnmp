@@ -40,7 +40,7 @@ config.addTransport(
     snmpEngine, udp.domainName, udp.UdpSocketTransport().openClientMode()
 )
 config.addTargetAddr(
-    snmpEngine, "my-router", udp.domainName, ("127.0.0.1", 161), "my-creds"
+    snmpEngine, "my-router", udp.domainName, ("127.0.0.1", 1161), "my-creds"
 )
 
 
