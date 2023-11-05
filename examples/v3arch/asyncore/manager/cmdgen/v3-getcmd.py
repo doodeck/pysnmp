@@ -38,6 +38,14 @@ async def run(username:str):
         case _:
             print(f"Urecognized username: '{username}', aborting")
             return
+    """
+        case 'usr-none-des':
+            # user: usr-none-des, auth: NONE, priv DES
+            Illegal combination:
+        File "/workspaces/pysnmp/env/lib/python3.10/site-packages/pysnmp/hlapi/auth.py", line 377, in __init__
+            raise error.PySnmpError('Privacy implies authenticity')
+    """
+
 
     errorIndication, errorStatus, errorIndex, varBinds = await getCmd(
         snmpEngine,
