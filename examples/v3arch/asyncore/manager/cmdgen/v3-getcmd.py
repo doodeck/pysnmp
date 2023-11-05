@@ -4,9 +4,9 @@ examples/v3arch/asyncore/agent/cmdrsp/multiple-usm-users.py
 """
 
 import asyncio
-from pysnmp.hlapi.auth import usmAesCfb256Protocol, usmHMACSHAAuthProtocol
+from pysnmp.hlapi.auth import usmDESPrivProtocol, usmHMACMD5AuthProtocol, usmHMACSHAAuthProtocol
 from pysnmp.smi.rfc1902 import ObjectIdentity, ObjectType
-from pysnmp.hlapi.asyncio import getCmd,SnmpEngine,CommunityData,UdpTransportTarget,ContextData, \
+from pysnmp.hlapi.asyncio import getCmd,UdpTransportTarget,ContextData, \
                                  UsmUserData
 from pysnmp.entity import engine
 import sys
@@ -26,6 +26,15 @@ async def run(username:str):
                 authKey='authkey1',
                 authProtocol=usmHMACSHAAuthProtocol
             )
+        case 'usr-md5-des':
+            # user: usr-md5-des, auth: MD5, priv DES
+            # config.addV3User(snmpEngine,"usr-md5-des",config.usmHMACMD5AuthProtocol,"authkey1",config.usmDESPrivProtocol,"privkey1",)
+            auth = UsmUserData(
+                userName=username,
+                authKey='authkey1',
+                authProtocol=usmHMACMD5AuthProtocol,
+                privKey='privkey1',
+                privProtocol=usmDESPrivProtocol)
         case _:
             print(f"Urecognized username: '{username}', aborting")
             return
