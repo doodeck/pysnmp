@@ -80,7 +80,7 @@ config.addVacmUser(
     snmpEngine, 3, "usr-sha-aes128", "authPriv", (1, 3, 6, 1, 2, 1), (1, 3, 6, 1, 2, 1)
 )
 config.addVacmUser(
-    snmpEngine, 3, "usr-none-none", "authNoPriv", (1, 3, 6, 1, 2, 1), (1, 3, 6, 1, 2, 1)
+    snmpEngine, 3, "usr-none-none", "noAuthNoPriv", (1, 3, 6, 1, 2, 1), (1, 3, 6, 1, 2, 1)
 )
 
 # Get default SNMP context this SNMP engine serves
