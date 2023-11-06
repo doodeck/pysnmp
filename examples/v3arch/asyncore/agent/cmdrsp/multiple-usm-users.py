@@ -19,6 +19,7 @@ Either of the following Net-SNMP commands will walk this Agent:
 | $ snmpwalk -v3 -u usr-md5-des -l authPriv -A authkey1 -X privkey1 localhost .1.3.6
 | $ snmpwalk -v3 -u usr-sha-none -l authNoPriv -a SHA -A authkey1 localhost .1.3.6
 | $ snmpwalk -v3 -u usr-sha-aes128 -l authPriv -a SHA -A authkey1 -x AES -X privkey1 localhost .1.3.6
+| $ snmpwalk -v3 -u usr-none-none -l noAuthNoPriv  localhost .1.3.6
 
 Also the following manager example is the perfect match to query this agent:
 examples/v3arch/asyncore/manager/cmdgen/v3-getcmd.py
